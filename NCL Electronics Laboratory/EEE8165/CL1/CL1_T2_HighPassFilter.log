@@ -1,0 +1,15 @@
+LTspice 26.1.1 for Windows
+Circuit: C:\Users\User\OneDrive\Documents\GitHub\NCL_GitHub\NCL\NCL Electronics Laboratory\EEE8165\CL1\CL1_T2_HighPassFilter.net
+Start Time: Wed Oct  7 14:31:41 2026
+solver = Normal
+Maximum thread count: 16
+tnom = 27
+temp = 27
+method = trap
+Direct Newton iteration succeeded in finding operating point.
+Total elapsed time: 0.051 seconds.
+Total iterations: 3
+
+Files loaded:
+C:\Users\User\OneDrive\Documents\GitHub\NCL_GitHub\NCL\NCL Electronics Laboratory\EEE8165\CL1\CL1_T2_HighPassFilter.net
+
