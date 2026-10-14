@@ -1,13 +1,13 @@
 LTspice 26.1.1 for Windows
 Circuit: C:\Users\User\OneDrive\Documents\GitHub\NCL_GitHub\NCL\NCL Circuit Laboratory\EEE8165\CL2\CL2_T11_NonInvertingAmplifier.net
-Start Time: Mon Oct 12 15:35:50 2026
+Start Time: Wed Oct 14 13:56:30 2026
 solver = Normal
 Maximum thread count: 16
 tnom = 27
 temp = 27
 method = trap
 Direct Newton iteration succeeded in finding operating point.
-Total elapsed time: 0.180 seconds.
+Total elapsed time: 0.205 seconds.
 Total iterations: 2476
 
 Files loaded:
