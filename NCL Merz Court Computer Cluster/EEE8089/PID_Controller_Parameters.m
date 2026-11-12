@@ -6,15 +6,19 @@ Tdead = 0.0078;
 
 G = (K*exp(Tdead*(-1)*s))/((T*s) + 1);
 
-Kp = 5.32/K;
-Ki = 85.26/K;
+ Kp = 5.32/K;
+ Ki = 85.26/K;
+ 
+ C = pid(Kp,Ki);
+ 
+ L = G*C;
+ 
+ figure;
+ bode(L);
+ margin(L);
+ grid on;
+ title("Closed Loop Response (pidtune)");
 
-C = pid(Kp,Ki);
-
-L = G*C;
-
-figure;
-bode(L);
-margin(L);
-grid on;
-title("Closed Loop Response");
+%opts = pidtuneOptions('PhaseMargin',61.352);
+%[C_pid, info_pid] = pidtune(G,"PID",opts)
+%[C_pi, info_pi] = pidtune(G,"PI",opts);
