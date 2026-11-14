@@ -1,0 +1,55 @@
+08:23:30.399710 dc:a6:32:fe:1c:7d > dc:a6:32:fe:1c:94, ethertype IPv4 (0x0800), length 254: 192.168.132.3.22 > 192.168.23.1.45182: Flags [P.], seq 4280634240:4280634428, ack 4204925392, win 509, options [nop,nop,TS val 1861357936 ecr 1418838609], length 188
+08:23:30.399907 dc:a6:32:fe:1c:94 > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 282: 192.168.132.2 > 192.168.132.3: ICMP redirect 192.168.23.1 to host 192.168.23.1, length 248
+08:23:30.400153 dc:a6:32:fe:1c:94 > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 66: 192.168.23.1.45182 > 192.168.132.3.22: Flags [.], ack 188, win 501, options [nop,nop,TS val 1418838720 ecr 1861357936], length 0
+08:23:31.525471 dc:a6:32:fe:1c:94 > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 118: 192.168.23.1.49896 > 192.168.133.4.22: Flags [P.], seq 3499591688:3499591740, ack 1216479004, win 501, options [nop,nop,TS val 3033552376 ecr 2259998647], length 52
+08:23:31.525520 dc:a6:32:fe:1c:7d > dc:a6:32:fe:1c:dc, ethertype IPv4 (0x0800), length 118: 192.168.23.1.49896 > 192.168.133.4.22: Flags [P.], seq 0:52, ack 1, win 501, options [nop,nop,TS val 3033552376 ecr 2259998647], length 52
+08:23:31.554551 dc:a6:32:fe:1c:94 > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 142: 192.168.23.1.49896 > 192.168.133.4.22: Flags [P.], seq 52:128, ack 1, win 501, options [nop,nop,TS val 3033552406 ecr 2259998647], length 76
+08:23:31.554564 dc:a6:32:fe:1c:7d > dc:a6:32:fe:1c:dc, ethertype IPv4 (0x0800), length 142: 192.168.23.1.49896 > 192.168.133.4.22: Flags [P.], seq 52:128, ack 1, win 501, options [nop,nop,TS val 3033552406 ecr 2259998647], length 76
+08:23:31.554785 dc:a6:32:fe:1c:dc > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 66: 192.168.133.4.22 > 192.168.23.1.49896: Flags [.], ack 128, win 509, options [nop,nop,TS val 2260052832 ecr 3033552376], length 0
+08:23:31.554804 dc:a6:32:fe:1c:7d > dc:a6:32:fe:1c:94, ethertype IPv4 (0x0800), length 66: 192.168.133.4.22 > 192.168.23.1.49896: Flags [.], ack 128, win 509, options [nop,nop,TS val 2260052832 ecr 3033552376], length 0
+08:23:31.555482 dc:a6:32:fe:1c:dc > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 150: 192.168.133.4.22 > 192.168.23.1.49896: Flags [P.], seq 1:85, ack 128, win 509, options [nop,nop,TS val 2260052832 ecr 3033552376], length 84
+08:23:31.555496 dc:a6:32:fe:1c:7d > dc:a6:32:fe:1c:94, ethertype IPv4 (0x0800), length 150: 192.168.133.4.22 > 192.168.23.1.49896: Flags [P.], seq 1:85, ack 128, win 509, options [nop,nop,TS val 2260052832 ecr 3033552376], length 84
+08:23:31.555807 dc:a6:32:fe:1c:94 > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 66: 192.168.23.1.49896 > 192.168.133.4.22: Flags [.], ack 85, win 501, options [nop,nop,TS val 3033552407 ecr 2260052832], length 0
+08:23:31.555830 dc:a6:32:fe:1c:7d > dc:a6:32:fe:1c:dc, ethertype IPv4 (0x0800), length 66: 192.168.23.1.49896 > 192.168.133.4.22: Flags [.], ack 85, win 501, options [nop,nop,TS val 3033552407 ecr 2260052832], length 0
+08:23:32.186373 dc:a6:32:fe:1c:94 > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 102: 192.168.23.1.49896 > 192.168.133.4.22: Flags [P.], seq 128:164, ack 85, win 501, options [nop,nop,TS val 3033553037 ecr 2260052832], length 36
+08:23:32.186389 dc:a6:32:fe:1c:7d > dc:a6:32:fe:1c:dc, ethertype IPv4 (0x0800), length 102: 192.168.23.1.49896 > 192.168.133.4.22: Flags [P.], seq 128:164, ack 85, win 501, options [nop,nop,TS val 3033553037 ecr 2260052832], length 36
+08:23:32.187030 dc:a6:32:fe:1c:dc > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 190: 192.168.133.4.22 > 192.168.23.1.49896: Flags [P.], seq 85:209, ack 164, win 509, options [nop,nop,TS val 2260053464 ecr 3033553037], length 124
+08:23:32.187042 dc:a6:32:fe:1c:7d > dc:a6:32:fe:1c:94, ethertype IPv4 (0x0800), length 190: 192.168.133.4.22 > 192.168.23.1.49896: Flags [P.], seq 85:209, ack 164, win 509, options [nop,nop,TS val 2260053464 ecr 3033553037], length 124
+08:23:32.187385 dc:a6:32:fe:1c:94 > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 66: 192.168.23.1.49896 > 192.168.133.4.22: Flags [.], ack 209, win 501, options [nop,nop,TS val 3033553038 ecr 2260053464], length 0
+08:23:32.187396 dc:a6:32:fe:1c:7d > dc:a6:32:fe:1c:dc, ethertype IPv4 (0x0800), length 66: 192.168.23.1.49896 > 192.168.133.4.22: Flags [.], ack 209, win 501, options [nop,nop,TS val 3033553038 ecr 2260053464], length 0
+08:23:32.188958 dc:a6:32:fe:1c:dc > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 110: 192.168.133.4.22 > 192.168.23.1.49896: Flags [P.], seq 209:253, ack 164, win 509, options [nop,nop,TS val 2260053466 ecr 3033553038], length 44
+08:23:32.188971 dc:a6:32:fe:1c:7d > dc:a6:32:fe:1c:94, ethertype IPv4 (0x0800), length 110: 192.168.133.4.22 > 192.168.23.1.49896: Flags [P.], seq 209:253, ack 164, win 509, options [nop,nop,TS val 2260053466 ecr 3033553038], length 44
+08:23:32.189289 dc:a6:32:fe:1c:94 > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 66: 192.168.23.1.49896 > 192.168.133.4.22: Flags [.], ack 253, win 501, options [nop,nop,TS val 3033553040 ecr 2260053466], length 0
+08:23:32.189300 dc:a6:32:fe:1c:7d > dc:a6:32:fe:1c:dc, ethertype IPv4 (0x0800), length 66: 192.168.23.1.49896 > 192.168.133.4.22: Flags [.], ack 253, win 501, options [nop,nop,TS val 3033553040 ecr 2260053466], length 0
+08:23:32.251399 dc:a6:32:fe:1c:dc > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 66: 192.168.133.4.37814 > 103.86.96.100.53: 18458+ A? MyRig7. (24)
+08:23:32.251400 dc:a6:32:fe:1c:dc > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 66: 192.168.133.4.37814 > 103.86.96.100.53: 48652+ AAAA? MyRig7. (24)
+08:23:32.251462 dc:a6:32:fe:1c:7d > dc:a6:32:fe:1c:dc, ethertype IPv4 (0x0800), length 94: 192.168.133.3 > 192.168.133.4: ICMP net 103.86.96.100 unreachable, length 60
+08:23:32.251493 dc:a6:32:fe:1c:7d > dc:a6:32:fe:1c:dc, ethertype IPv4 (0x0800), length 94: 192.168.133.3 > 192.168.133.4: ICMP net 103.86.96.100 unreachable, length 60
+08:23:32.251748 dc:a6:32:fe:1c:dc > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 66: 192.168.133.4.50700 > 8.8.8.8.53: 18458+ A? MyRig7. (24)
+08:23:32.251750 dc:a6:32:fe:1c:dc > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 66: 192.168.133.4.50700 > 8.8.8.8.53: 48652+ AAAA? MyRig7. (24)
+08:23:32.490800 dc:a6:32:fe:1c:dc > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 81: 192.168.133.4.57980 > 103.86.96.100.53: 29669+ A? 1.debian.pool.ntp.org. (39)
+08:23:32.490837 dc:a6:32:fe:1c:dc > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 81: 192.168.133.4.57980 > 103.86.96.100.53: 25066+ AAAA? 1.debian.pool.ntp.org. (39)
+08:23:34.842924 dc:a6:32:fe:1c:94 > dc:a6:32:fe:1c:7d, ethertype ARP (0x0806), length 60: Request who-has 192.168.132.3 tell 192.168.132.2, length 46
+08:23:34.842958 dc:a6:32:fe:1c:7d > dc:a6:32:fe:1c:94, ethertype ARP (0x0806), length 42: Reply 192.168.132.3 is-at dc:a6:32:fe:1c:7d, length 28
+08:23:37.256916 dc:a6:32:fe:1c:dc > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 66: 192.168.133.4.33826 > 103.86.96.100.53: 18458+ A? MyRig7. (24)
+08:23:37.256919 dc:a6:32:fe:1c:dc > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 66: 192.168.133.4.33826 > 103.86.96.100.53: 48652+ AAAA? MyRig7. (24)
+08:23:37.256985 dc:a6:32:fe:1c:7d > dc:a6:32:fe:1c:dc, ethertype IPv4 (0x0800), length 94: 192.168.133.3 > 192.168.133.4: ICMP net 103.86.96.100 unreachable, length 60
+08:23:37.257021 dc:a6:32:fe:1c:7d > dc:a6:32:fe:1c:dc, ethertype IPv4 (0x0800), length 94: 192.168.133.3 > 192.168.133.4: ICMP net 103.86.96.100 unreachable, length 60
+08:23:37.257290 dc:a6:32:fe:1c:dc > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 66: 192.168.133.4.60489 > 8.8.8.8.53: 18458+ A? MyRig7. (24)
+08:23:37.257292 dc:a6:32:fe:1c:dc > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 66: 192.168.133.4.60489 > 8.8.8.8.53: 48652+ AAAA? MyRig7. (24)
+08:23:37.495968 dc:a6:32:fe:1c:dc > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 81: 192.168.133.4.48467 > 8.8.8.8.53: 29669+ A? 1.debian.pool.ntp.org. (39)
+08:23:37.495971 dc:a6:32:fe:1c:dc > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 81: 192.168.133.4.48467 > 8.8.8.8.53: 25066+ AAAA? 1.debian.pool.ntp.org. (39)
+08:23:42.262658 dc:a6:32:fe:1c:dc > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 66: 192.168.133.4.47379 > 103.86.96.100.53: 48449+ A? MyRig7. (24)
+08:23:42.262661 dc:a6:32:fe:1c:dc > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 66: 192.168.133.4.47379 > 103.86.96.100.53: 60236+ AAAA? MyRig7. (24)
+08:23:42.262723 dc:a6:32:fe:1c:7d > dc:a6:32:fe:1c:dc, ethertype IPv4 (0x0800), length 94: 192.168.133.3 > 192.168.133.4: ICMP net 103.86.96.100 unreachable, length 60
+08:23:42.262757 dc:a6:32:fe:1c:7d > dc:a6:32:fe:1c:dc, ethertype IPv4 (0x0800), length 94: 192.168.133.3 > 192.168.133.4: ICMP net 103.86.96.100 unreachable, length 60
+08:23:42.262963 dc:a6:32:fe:1c:dc > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 66: 192.168.133.4.45254 > 8.8.8.8.53: 48449+ A? MyRig7. (24)
+08:23:42.262965 dc:a6:32:fe:1c:dc > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 66: 192.168.133.4.45254 > 8.8.8.8.53: 60236+ AAAA? MyRig7. (24)
+08:23:42.501075 dc:a6:32:fe:1c:dc > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 81: 192.168.133.4.57980 > 103.86.96.100.53: 29669+ A? 1.debian.pool.ntp.org. (39)
+08:23:42.501077 dc:a6:32:fe:1c:dc > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 81: 192.168.133.4.57980 > 103.86.96.100.53: 25066+ AAAA? 1.debian.pool.ntp.org. (39)
+08:23:43.152551 dc:a6:32:fe:1c:94 > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 102: 192.168.23.1.49896 > 192.168.133.4.22: Flags [P.], seq 164:200, ack 253, win 501, options [nop,nop,TS val 3033564003 ecr 2260053466], length 36
+08:23:43.152582 dc:a6:32:fe:1c:7d > dc:a6:32:fe:1c:dc, ethertype IPv4 (0x0800), length 102: 192.168.23.1.49896 > 192.168.133.4.22: Flags [P.], seq 164:200, ack 253, win 501, options [nop,nop,TS val 3033564003 ecr 2260053466], length 36
+08:23:43.153218 dc:a6:32:fe:1c:dc > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 102: 192.168.133.4.22 > 192.168.23.1.49896: Flags [P.], seq 253:289, ack 200, win 509, options [nop,nop,TS val 2260064430 ecr 3033564003], length 36
+08:23:43.153233 dc:a6:32:fe:1c:7d > dc:a6:32:fe:1c:94, ethertype IPv4 (0x0800), length 102: 192.168.133.4.22 > 192.168.23.1.49896: Flags [P.], seq 253:289, ack 200, win 509, options [nop,nop,TS val 2260064430 ecr 3033564003], length 36
+08:23:43.153574 dc:a6:32:fe:1c:94 > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 66: 192.168.23.1.49896 > 192.168.133.4.22: Flags [.], ack 289, win 501, options [nop,nop,TS val 3033564005 ecr 2260064430], length 0
+08:23:43.153586 dc:a6:32:fe:1c:7d > dc:a6:32:fe:1c:dc, ethertype IPv4 (0x0800), length 66: 192.168.23.1.49896 > 192.168.133.4.22: Flags [.], ack 289, win 501, options [nop,nop,TS val 3033564005 ecr 2260064430], length 0

@@ -1,0 +1,14 @@
+05:32:31.597167 dc:a6:32:fe:1c:dc > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 254: 192.168.133.4.22 > 192.168.23.1.49896: Flags [P.], seq 1216479796:1216479984, ack 3499592004, win 509, options [nop,nop,TS val 2260098413 ecr 3033597872], length 188
+05:32:31.597681 dc:a6:32:fe:1c:7d > dc:a6:32:fe:1c:dc, ethertype IPv4 (0x0800), length 66: 192.168.23.1.49896 > 192.168.133.4.22: Flags [.], ack 188, win 501, options [nop,nop,TS val 3033597988 ecr 2260098413], length 0
+05:32:31.999293 dc:a6:32:fe:1c:dc > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 81: 192.168.133.4.42859 > 103.86.96.100.53: 7042+ A? 3.debian.pool.ntp.org. (39)
+05:32:31.999330 dc:a6:32:fe:1c:dc > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 81: 192.168.133.4.42859 > 103.86.96.100.53: 32444+ AAAA? 3.debian.pool.ntp.org. (39)
+05:32:31.999465 dc:a6:32:fe:1c:7d > dc:a6:32:fe:1c:dc, ethertype IPv4 (0x0800), length 109: 192.168.133.3 > 192.168.133.4: ICMP net 103.86.96.100 unreachable, length 75
+05:32:31.999519 dc:a6:32:fe:1c:7d > dc:a6:32:fe:1c:dc, ethertype IPv4 (0x0800), length 109: 192.168.133.3 > 192.168.133.4: ICMP net 103.86.96.100 unreachable, length 75
+05:32:31.999694 dc:a6:32:fe:1c:dc > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 81: 192.168.133.4.41494 > 8.8.8.8.53: 7042+ A? 3.debian.pool.ntp.org. (39)
+05:32:31.999722 dc:a6:32:fe:1c:dc > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 81: 192.168.133.4.41494 > 8.8.8.8.53: 32444+ AAAA? 3.debian.pool.ntp.org. (39)
+05:32:37.005739 dc:a6:32:fe:1c:dc > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 81: 192.168.133.4.51573 > 103.86.96.100.53: 57052+ A? 0.debian.pool.ntp.org. (39)
+05:32:37.005785 dc:a6:32:fe:1c:dc > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 81: 192.168.133.4.51573 > 103.86.96.100.53: 48330+ AAAA? 0.debian.pool.ntp.org. (39)
+05:32:37.005974 dc:a6:32:fe:1c:7d > dc:a6:32:fe:1c:dc, ethertype IPv4 (0x0800), length 109: 192.168.133.3 > 192.168.133.4: ICMP net 103.86.96.100 unreachable, length 75
+05:32:37.006035 dc:a6:32:fe:1c:7d > dc:a6:32:fe:1c:dc, ethertype IPv4 (0x0800), length 109: 192.168.133.3 > 192.168.133.4: ICMP net 103.86.96.100 unreachable, length 75
+05:32:37.006150 dc:a6:32:fe:1c:dc > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 81: 192.168.133.4.33525 > 8.8.8.8.53: 57052+ A? 0.debian.pool.ntp.org. (39)
+05:32:37.006179 dc:a6:32:fe:1c:dc > dc:a6:32:fe:1c:7d, ethertype IPv4 (0x0800), length 81: 192.168.133.4.33525 > 8.8.8.8.53: 48330+ AAAA? 0.debian.pool.ntp.org. (39)
