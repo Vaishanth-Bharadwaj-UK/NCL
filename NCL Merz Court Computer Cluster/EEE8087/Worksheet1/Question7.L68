@@ -1,0 +1,40 @@
+00001000 Starting Address
+Assembler used: EASy68K Editor/Assembler v5.16.01
+Created On: 17-11-2026 20:30:48
+
+00000000                             1  *-----------------------------------------------------------
+00000000                             2  * Written by : Vaishanth Bharadwaj
+00000000                             3  * Description: EEE8087
+00000000                             4  *-----------------------------------------------------------
+00000000                             5  
+00001000                             6  START   ORG $1000
+00001000                             7  
+00001000  31FC 0008 2000             8      MOVE    #$8,$2000
+00001006  3038 2000                  9      MOVE    $2000,D0
+0000100A  E248                      10      LSR #$1,D0
+0000100C  31C0 2002                 11      MOVE    D0,$2002
+00001010  E248                      12      LSR #$1,D0
+00001012  31C0 2004                 13      MOVE    D0,$2004
+00001016                            14  
+00001016  31FC FFF8 2006            15      MOVE    #-$8,$2006
+0000101C  3038 2006                 16      MOVE    $2006,D0
+00001020  E240                      17      ASR #$1,D0
+00001022  31C0 2008                 18      MOVE    D0,$2008
+00001026  E240                      19      ASR #$1,D0
+00001028  31C0 200A                 20      MOVE    D0,$200A
+0000102C                            21  
+0000102C                            22  
+0000102C  FFFF FFFF                 23      SIMHALT
+00001030                            24  
+00001030                            25  
+00001030                            26  
+00001030                            27      END START
+
+No errors detected
+No warnings generated
+
+
+SYMBOL TABLE INFORMATION
+Symbol-name         Value
+-------------------------
+START               1000

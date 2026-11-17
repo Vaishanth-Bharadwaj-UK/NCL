@@ -1,0 +1,60 @@
+00001000 Starting Address
+Assembler used: EASy68K Editor/Assembler v5.16.01
+Created On: 17-11-2026 20:01:01
+
+00000000                             1  *-----------------------------------------------------------
+00000000                             2  * Written by : Vaishanth Bharadwaj
+00000000                             3  * Description: EEE8087
+00000000                             4  *-----------------------------------------------------------
+00000000                             5  
+00001000                             6  START   ORG $1000
+00001000                             7  
+00001000  31FC FF0F 2000             8      MOVE    #$FF0F,$2000
+00001006  3038 2000                  9      MOVE    $2000,D0
+0000100A  323C 0000                 10      MOVE    #$0,D1
+0000100E  343C 0010                 11      MOVE    #$10,D2
+00001012                            12  LOOP1
+00001012  E348                      13      LSL #1,D0
+00001014  6400 0004                 14      BCC none
+00001018  5241                      15      ADD #$1,D1
+0000101A                            16  none
+0000101A  5342                      17      SUB #$1,D2
+0000101C  66F4                      18      BNE LOOP1
+0000101E  31C1 2004                 19      MOVE D1,$2004
+00001022                            20  
+00001022  31FC FF0F 2000            21      MOVE    #$FF0F,$2000
+00001028  3038 2000                 22      MOVE    $2000,D0
+0000102C  323C 0000                 23      MOVE    #$0,D1
+00001030  343C 0010                 24      MOVE    #$10,D2
+00001034                            25  LOOP2
+00001034  E348                      26      LSL #1,D0
+00001036  6500 000A                 27      BCS one
+0000103A  5342                      28      SUB #$1,D2
+0000103C  66F6                      29      BNE LOOP2
+0000103E  6000 0008                 30      BRA next
+00001042                            31  one
+00001042  5241                      32      ADD #$1,D1
+00001044  5342                      33      SUB #$1,D2
+00001046  66EC                      34      BNE LOOP2
+00001048                            35  next
+00001048  31C1 2006                 36      MOVE D1,$2006
+0000104C                            37  
+0000104C  FFFF FFFF                 38      SIMHALT
+00001050                            39  
+00001050                            40  
+00001050                            41  
+00001050                            42      END START
+
+No errors detected
+No warnings generated
+
+
+SYMBOL TABLE INFORMATION
+Symbol-name         Value
+-------------------------
+LOOP1               1012
+LOOP2               1034
+NEXT                1048
+NONE                101A
+ONE                 1042
+START               1000

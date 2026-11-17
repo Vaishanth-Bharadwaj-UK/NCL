@@ -1,0 +1,52 @@
+00001000 Starting Address
+Assembler used: EASy68K Editor/Assembler v5.16.01
+Created On: 17-11-2026 21:55:05
+
+00000000                             1  *-----------------------------------------------------------
+00000000                             2  * Written by : Vaishanth Bharadwaj
+00000000                             3  * Description: EEE8087
+00000000                             4  *-----------------------------------------------------------
+00000000                             5  
+00001000                             6  START   ORG $1000
+00001000                             7  
+00001000  307C 2000                  8      MOVE    #recary,A0
+00001004  327C 2500                  9      MOVE    #array,A1
+00001008  323C 000A                 10      MOVE    #10,D1
+0000100C                            11  LOOP1
+0000100C  3151 0000                 12      MOVE    (A1),val(A0)
+00001010  5449                      13      ADD #2,A1
+00001012  3008                      14      MOVE    A0,D0
+00001014  0640 0004                 15      ADD #reclen,D0
+00001018  3140 0002                 16      MOVE    D0,adr(A0)
+0000101C  D0FC 0004                 17      ADD #reclen,A0
+00001020  5541                      18      SUB #2,D1
+00001022  66E8                      19      BNE LOOP1
+00001024  3151 0000                 20      MOVE    (A1),val(A0)
+00001028  317C 0000 0002            21      MOVE    #0000,adr(A0)
+0000102E                            22      
+0000102E  FFFF FFFF                 23      SIMHALT
+00001032                            24  
+00002000                            25      ORG $2000
+00002000                            26  recary  ds  12
+00002018  =00000000                 27  val EQU 0
+00002018  =00000002                 28  adr EQU 2
+00002018  =00000004                 29  reclen  EQU 4
+00002500                            30      ORG $2500
+00002500= 0003 0004 0001 0...       31  array   DC  3,4,1,2,6,5
+0000250C                            32  
+0000250C                            33      END START
+
+No errors detected
+No warnings generated
+
+
+SYMBOL TABLE INFORMATION
+Symbol-name         Value
+-------------------------
+ADR                 2
+ARRAY               2500
+LOOP1               100C
+RECARY              2000
+RECLEN              4
+START               1000
+VAL                 0
