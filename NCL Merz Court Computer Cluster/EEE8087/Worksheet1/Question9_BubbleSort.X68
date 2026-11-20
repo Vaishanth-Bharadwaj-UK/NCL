@@ -62,10 +62,13 @@ recary_org  ds  12
 val_org EQU 0
 adr_org EQU 2
 reclen_org  EQU 4
+    ORG $2200
+rec_offset  EQU reclen_org-reclen
     ORG $2500
 array   DC  4,7,3,1,9,2
 
 	END	START
+
 
 
 *~Font name~Courier New~
