@@ -1,6 +1,6 @@
 00001000 Starting Address
 Assembler used: EASy68K Editor/Assembler v5.16.01
-Created On: 20-11-2026 16:28:35
+Created On: 21-11-2026 17:21:55
 
 00000000                             1  *-----------------------------------------------------------
 00000000                             2  * Written by : Vaishanth Bharadwaj
@@ -10,48 +10,84 @@ Created On: 20-11-2026 16:28:35
 00001000                             6  START   ORG $1000
 00001000                             7  
 00001000  307C 2000                  8      MOVE    #recary,A0
-00001004  327C 2020                  9      MOVE    #recary_org,A1
-00001008  303C 0005                 10      MOVE    #$5,D0
-0000100C  367C 2500                 11      MOVE #array,A3
-00001010                            12  GENERATE
-00001010  3153 0000                 13      MOVE    (A3),val(A0)
-00001014  3408                      14      MOVE    A0,D2
-00001016  0642 0004                 15      ADD #reclen,D2
-0000101A  3142 0002                 16      MOVE    D2,adr(A0)
-0000101E  3353 0000                 17      MOVE    (A3),val(A1)
-00001022  3409                      18      MOVE    A1,D2
-00001024  0642 0004                 19      ADD #reclen,D2
-00001028  3342 0002                 20      MOVE    D2,adr(A1)
-0000102C  544B                      21      ADD #$2,A3
-0000102E  D0FC 0004                 22      ADD #reclen,A0
-00001032  D2FC 0004                 23      ADD #reclen,A1
-00001036  5340                      24      SUB #$1,D0
-00001038  66D6                      25      BNE GENERATE
-0000103A  3153 0000                 26      MOVE    (A3),val(A0)
-0000103E  317C 0000 0002            27      MOVE    #$0000,adr(A0)
-00001044  3353 0000                 28      MOVE    (A3),val(A1)
-00001048  337C 0000 0002            29      MOVE    #$0000,adr(A1)
-0000104E                            30  
-0000104E                            31  
-0000104E                            32      
-0000104E  FFFF FFFF                 33      SIMHALT
-00001052                            34  
-00002000                            35      ORG $2000
-00002000                            36  recary  ds  12
-00002018  =00000000                 37  val EQU 0
-00002018  =00000002                 38  adr EQU 2
-00002018  =00000004                 39  reclen  EQU 4
-00002020                            40      ORG $2020
-00002020                            41  recary_org  ds  12
-00002038  =00000000                 42  val_org EQU 0
-00002038  =00000002                 43  adr_org EQU 2
-00002038  =00000004                 44  reclen_org  EQU 4
-00002200                            45      ORG $2200
-00002200  =00000020                 46  rec_offset  EQU recary_org-recary
-00002500                            47      ORG $2500
-00002500= 0004 0007 0003 0...       48  array   DC  4,7,3,1,9,2
-0000250C                            49  
-0000250C                            50      END START
+00001004  303C 0005                  9      MOVE    #$5,D0
+00001008  367C 2500                 10      MOVE #array,A3
+0000100C                            11  GENERATE
+0000100C  3153 0000                 12      MOVE    (A3),val(A0)
+00001010  3408                      13      MOVE    A0,D2
+00001012  0642 0004                 14      ADD #reclen,D2
+00001016  3142 0002                 15      MOVE    D2,adr(A0)
+0000101A  544B                      16      ADD #$2,A3
+0000101C  D0FC 0004                 17      ADD #reclen,A0
+00001020  5340                      18      SUB #$1,D0
+00001022  66E8                      19      BNE GENERATE
+00001024  3153 0000                 20      MOVE    (A3),val(A0)
+00001028  317C 0000 0002            21      MOVE    #$0000,adr(A0)
+0000102E                            22  
+0000102E  347C 2000                 23      MOVE    #recary,A2
+00001032  94FC 0004                 24      SUB #reclen,A2
+00001036  357C 2000 0002            25      MOVE    #recary,adr(A2)
+0000103C                            26  
+0000103C                            27  BUBBLE_SORT_INIT
+0000103C  347C 2000                 28      MOVE    #recary,A2
+00001040  94FC 0004                 29      SUB #reclen,A2
+00001044  306A 0002                 30      MOVE    adr(A2),A0
+00001048  3268 0002                 31      MOVE    adr(A0),A1
+0000104C                            32  BUBBLE_SORT
+0000104C  3228 0000                 33      MOVE    val(A0),D1
+00001050  3429 0000                 34      MOVE    val(A1),D2
+00001054  B441                      35      CMP D1,D2
+00001056  6E00 001C                 36      BGT NEXT_RUN
+0000105A  3628 0002                 37      MOVE    adr(A0),D3
+0000105E  3829 0002                 38      MOVE    adr(A1),D4
+00001062  3A2A 0002                 39      MOVE    adr(A2),D5
+00001066  3543 0002                 40      MOVE    D3,adr(A2)
+0000106A  3144 0002                 41      MOVE    D4,adr(A0)
+0000106E  3345 0002                 42      MOVE    D5,adr(A1)
+00001072  60C8                      43      BRA BUBBLE_SORT_INIT
+00001074                            44  NEXT_RUN
+00001074  0C69 0000 0002            45      CMP #$0000,adr(A1)
+0000107A  6700 0010                 46      BEQ DONE
+0000107E  3068 0002                 47      MOVE    adr(A0),A0
+00001082  3269 0002                 48      MOVE    adr(A1),A1
+00001086  346A 0002                 49      MOVE    adr(A2),A2
+0000108A  60C0                      50      BRA BUBBLE_SORT
+0000108C                            51  DONE
+0000108C  307C 2000                 52      MOVE    #recary,A0
+00001090  90FC 0004                 53      SUB #reclen,A0
+00001094  3028 0002                 54      MOVE    adr(A0),D0
+00001098  3040                      55      MOVE    D0,A0
+0000109A  327C 2020                 56      MOVE    #recary_org,A1
+0000109E                            57  LOOP_ORG
+0000109E  3028 0000                 58      MOVE    val(A0),D0
+000010A2  3280                      59      MOVE    D0,(A1)
+000010A4  5449                      60      ADD #$2,A1
+000010A6  3028 0002                 61      MOVE    adr(A0),D0
+000010AA  3040                      62      MOVE    D0,A0
+000010AC  6700 0004                 63      BEQ FIN
+000010B0  60EC                      64      BRA LOOP_ORG
+000010B2                            65  FIN
+000010B2  307C 2000                 66      MOVE    #recary,A0
+000010B6  90FC 0004                 67      SUB #reclen,A0
+000010BA  3028 0002                 68      MOVE    adr(A0),D0
+000010BE  3040                      69      MOVE    D0,A0
+000010C0  327C 2020                 70      MOVE    #recary_org,A1
+000010C4                            71  
+000010C4  FFFF FFFF                 72      SIMHALT
+000010C8                            73  
+00002000                            74      ORG $2000
+00002000                            75  recary  ds  12
+00002018  =00000000                 76  val EQU 0
+00002018  =00000002                 77  adr EQU 2
+00002018  =00000004                 78  reclen  EQU 4
+00002020                            79      ORG $2020
+00002020                            80  recary_org  ds  6
+00002200                            81      ORG $2200
+00002200  =00000020                 82  rec_offset  EQU recary_org-recary
+00002500                            83      ORG $2500
+00002500= 0004 0007 0003 0...       84  array   DC  4,7,3,1,9,2
+0000250C                            85  
+0000250C                            86      END START
 
 No errors detected
 No warnings generated
@@ -61,14 +97,17 @@ SYMBOL TABLE INFORMATION
 Symbol-name         Value
 -------------------------
 ADR                 2
-ADR_ORG             2
 ARRAY               2500
-GENERATE            1010
+BUBBLE_SORT         104C
+BUBBLE_SORT_INIT    103C
+DONE                108C
+FIN                 10B2
+GENERATE            100C
+LOOP_ORG            109E
+NEXT_RUN            1074
 RECARY              2000
 RECARY_ORG          2020
 RECLEN              4
-RECLEN_ORG          4
 REC_OFFSET          20
 START               1000
 VAL                 0
-VAL_ORG             0
