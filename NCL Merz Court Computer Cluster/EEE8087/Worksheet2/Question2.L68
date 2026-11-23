@@ -1,0 +1,70 @@
+00001000 Starting Address
+Assembler used: EASy68K Editor/Assembler v5.16.01
+Created On: 23-11-2026 11:40:03
+
+00000000                             1  *-----------------------------------------------------------
+00000000                             2  * Written by : Vaishanth Bharadwaj
+00000000                             3  * Description: EEE8087
+00000000                             4  *-----------------------------------------------------------
+00000000                             5  
+00001000                             6  START   ORG $1000
+00001000                             7  
+00001000  207C 00001048              8      MOVE.L    #SEG_DAT,A0
+00001006  1010                       9      MOVE.B  (A0),D0
+00001008  13C0 00E0000E             10      MOVE.B    D0,SEG_LED
+0000100E                            11  SW_PRESSED
+0000100E  1039 00E00014             12      MOVE.B  SW,D0
+00001014  C0BC 00000001             13      AND.L #$1,D0
+0000101A  66F2                      14      BNE SW_PRESSED
+0000101C                            15  
+0000101C  1010                      16      MOVE.B    (A0),D0
+0000101E  5288                      17      ADD.L #$1,A0
+00001020  13C0 00E0000E             18      MOVE.B  D0,SEG_LED
+00001026  0C10 0080                 19      CMP.B #$80,(A0)
+0000102A  6600 0008                 20      BNE SW_RELEASED
+0000102E  207C 00001048             21      MOVE.L    #SEG_DAT,A0
+00001034                            22  
+00001034                            23  SW_RELEASED
+00001034  1039 00E00014             24      MOVE.B  SW,D0
+0000103A  C0BC 00000001             25      AND.L #$1,D0
+00001040  67F2                      26      BEQ SW_RELEASED
+00001042                            27  
+00001042  60CA                      28      BRA SW_PRESSED
+00001044                            29  
+00001044  FFFF FFFF                 30      SIMHALT
+00001048                            31  
+00001048  =00E00014                 32  SW  EQU $E00014
+00001048  =00E0000E                 33  SEG_LED EQU $E0000E
+00001048= 3F                        34  SEG_DAT DC.B    $3F
+00001049= 06                        35      DC.B    $06
+0000104A= 5B                        36      DC.B    $5B
+0000104B= 4F                        37      DC.B    $4F
+0000104C= 66                        38      DC.B    $66
+0000104D= 6D                        39      DC.B    $6D
+0000104E= 7D                        40      DC.B    $7D
+0000104F= 07                        41      DC.B    $07
+00001050= 7F                        42      DC.B    $7F
+00001051= 67                        43      DC.B    $67
+00001052= 77                        44      DC.B    $77
+00001053= 7C                        45      DC.B    $7C
+00001054= 39                        46      DC.B    $39
+00001055= 5E                        47      DC.B    $5E
+00001056= 79                        48      DC.B    $79
+00001057= 71                        49      DC.B    $71
+00001058= 80                        50      DC.B    $80
+00001059                            51  
+00001059                            52      END START
+
+No errors detected
+No warnings generated
+
+
+SYMBOL TABLE INFORMATION
+Symbol-name         Value
+-------------------------
+SEG_DAT             1048
+SEG_LED             E0000E
+START               1000
+SW                  E00014
+SW_PRESSED          100E
+SW_RELEASED         1034

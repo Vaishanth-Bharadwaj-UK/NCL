@@ -1,0 +1,50 @@
+00001000 Starting Address
+Assembler used: EASy68K Editor/Assembler v5.16.01
+Created On: 23-11-2026 11:13:24
+
+00000000                             1  *-----------------------------------------------------------
+00000000                             2  * Written by : Vaishanth Bharadwaj
+00000000                             3  * Description: EEE8087
+00000000                             4  *-----------------------------------------------------------
+00000000                             5  
+00001000                             6  START   ORG $1000
+00001000                             7  
+00001000  303C 0000                  8      MOVE    #$0000,D0
+00001004  3200                       9      MOVE    D0,D1
+00001006  13C0 00E00010             10      MOVE.B    D0,LED
+0000100C                            11  SW_PRESSED
+0000100C  1039 00E00014             12      MOVE.B  SW,D0
+00001012  C07C 0001                 13      AND #$1,D0
+00001016  66F4                      14      BNE SW_PRESSED
+00001018                            15  
+00001018  3001                      16      MOVE    D1,D0
+0000101A  0A40 0001                 17      EOR #$1,D0
+0000101E  3200                      18      MOVE    D0,D1
+00001020  13C0 00E00010             19      MOVE.B  D0,LED
+00001026                            20  
+00001026                            21  SW_RELEASED
+00001026  1039 00E00014             22      MOVE.B  SW,D0
+0000102C  C07C 0001                 23      AND #$1,D0
+00001030  67F4                      24      BEQ SW_RELEASED
+00001032                            25  
+00001032  60D8                      26      BRA SW_PRESSED
+00001034                            27  
+00001034  FFFF FFFF                 28      SIMHALT
+00001038                            29  
+00001038  =00E00014                 30  SW  EQU $E00014
+00001038  =00E00010                 31  LED EQU $E00010
+00001038                            32  
+00001038                            33      END START
+
+No errors detected
+No warnings generated
+
+
+SYMBOL TABLE INFORMATION
+Symbol-name         Value
+-------------------------
+LED                 E00010
+START               1000
+SW                  E00014
+SW_PRESSED          100C
+SW_RELEASED         1026

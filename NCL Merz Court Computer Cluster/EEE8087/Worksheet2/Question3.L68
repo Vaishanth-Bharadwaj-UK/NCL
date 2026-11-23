@@ -1,0 +1,92 @@
+00001000 Starting Address
+Assembler used: EASy68K Editor/Assembler v5.16.01
+Created On: 23-11-2026 12:46:58
+
+00000000                             1  *-----------------------------------------------------------
+00000000                             2  * Written by : Vaishanth Bharadwaj
+00000000                             3  * Description: EEE8087
+00000000                             4  *-----------------------------------------------------------
+00000000                             5  
+00001000                             6  START   ORG $1000
+00001000                             7  
+00001000                             8  INIT_START
+00001000  7400                       9      MOVE.L    #$0000,D2
+00001002  207C 00002500             10      MOVE.L    #ORD,A0
+00001008  13C2 00E00010             11      MOVE.B    D2,LED
+0000100E                            12  SW_PRESSED
+0000100E  1639 00E00012             13      MOVE.B  DONE,D3
+00001014  B63C 0001                 14      CMP.B   #$1,D3
+00001018  6700 0024                 15      BEQ PLAYBACK
+0000101C  1439 00E00014             16      MOVE.B  SW,D2
+00001022  B43C 00FF                 17      CMP.B #$FF,D2
+00001026  67E6                      18      BEQ SW_PRESSED
+00001028                            19  
+00001028  0A02 00FF                 20      EOR.B   #$FF,D2
+0000102C  1082                      21      MOVE.B  D2,(A0)
+0000102E  5288                      22      ADD.L   #$1,A0
+00001030                            23  
+00001030                            24  SW_RELEASED
+00001030  1439 00E00014             25      MOVE.B  SW,D2
+00001036  B43C 00FF                 26      CMP.B #$FF,D2
+0000103A  66F4                      27      BNE SW_RELEASED
+0000103C                            28  
+0000103C  60D0                      29      BRA SW_PRESSED
+0000103E                            30  
+0000103E                            31  PLAYBACK
+0000103E  10BC 00FF                 32      MOVE.B    #$FF,(A0)
+00001042  207C 00002500             33      MOVE.L    #ORD,A0
+00001048                            34  WAIT
+00001048  7017                      35      MOVE.L  #23,D0
+0000104A  123C 0032                 36      MOVE.B  #50,D1
+0000104E  4E4F                      37      TRAP    #15
+00001050  7400                      38      MOVE.L    #$0000,D2
+00001052  13C2 00E00010             39      MOVE.B    D2,LED
+00001058  7017                      40      MOVE.L  #23,D0
+0000105A  323C 0032                 41      MOVE    #50,D1
+0000105E  4E4F                      42      TRAP    #15
+00001060                            43  NEXT_PLAY
+00001060  0C10 00FF                 44      CMP.B #$FF,(A0)
+00001064  6700 0010                 45      BEQ FIN_PLAY
+00001068  13D0 00E00010             46      MOVE.B  (A0),LED
+0000106E  10BC 00FF                 47      MOVE.B  #$FF,(A0)
+00001072  5288                      48      ADD.L   #$1,A0
+00001074  60D2                      49      BRA WAIT
+00001076                            50  FIN_PLAY
+00001076  7400                      51      MOVE.L    #$0000,D2
+00001078  207C 00002500             52      MOVE.L    #ORD,A0
+0000107E  13C2 00E00010             53      MOVE.B    D2,LED
+00001084                            54  INIT
+00001084  1639 00E00012             55      MOVE.B  DONE,D3
+0000108A  B63C 0001                 56      CMP.B   #$1,D3
+0000108E  67F4                      57      BEQ INIT
+00001090  6000 FF6E                 58      BRA INIT_START
+00001094                            59  
+00001094  FFFF FFFF                 60      SIMHALT
+00001098                            61  
+00001098  =00E00014                 62  SW  EQU $E00014
+00001098  =00E00010                 63  LED EQU $E00010
+00001098  =00E00012                 64  DONE    EQU $E00012
+00001098  =00002500                 65  ORD EQU $2500
+00001098                            66  
+00001098                            67      END START
+
+No errors detected
+No warnings generated
+
+
+SYMBOL TABLE INFORMATION
+Symbol-name         Value
+-------------------------
+DONE                E00012
+FIN_PLAY            1076
+INIT                1084
+INIT_START          1000
+LED                 E00010
+NEXT_PLAY           1060
+ORD                 2500
+PLAYBACK            103E
+START               1000
+SW                  E00014
+SW_PRESSED          100E
+SW_RELEASED         1030
+WAIT                1048
