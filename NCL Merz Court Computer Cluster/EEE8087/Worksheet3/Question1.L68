@@ -1,0 +1,56 @@
+00001000 Starting Address
+Assembler used: EASy68K Editor/Assembler v5.16.01
+Created On: 24-11-2026 11:57:24
+
+00000000                             1  *-----------------------------------------------------------
+00000000                             2  * Written by : Vaishanth Bharadwaj
+00000000                             3  * Description: EEE8087
+00000000                             4  *-----------------------------------------------------------
+00000000                             5  
+00001000                             6  START   ORG $1000
+00001000                             7  
+00001000  7000                       8      MOVE.L    #$0000,D0
+00001002  23C0 00002000              9      MOVE.L    D0,LED_STAT
+00001008  13C0 00E00010             10      MOVE.B    D0,LED
+0000100E  46FC 2000                 11      MOVE    #$2000,SR
+00001012                            12  
+00001012                            13  FG_LOOP
+00001012  2039 00002000             14      MOVE.L  LED_STAT,D0
+00001018  13C0 00E00010             15      MOVE.B  D0,LED
+0000101E  60F2                      16      BRA FG_LOOP
+00001020                            17  
+00001020                            18  ISR
+00001020  598F                      19      SUB.L   #$4,SP
+00001022  2E80                      20      MOVE.L    D0,(SP)
+00001024  2039 00002000             21      MOVE.L    LED_STAT,D0
+0000102A  0A80 00000001             22      EOR.L #$1,D0
+00001030  23C0 00002000             23      MOVE.L    D0,LED_STAT
+00001036  2017                      24      MOVE.L    (SP),D0
+00001038  588F                      25      ADD.L   #$4,SP
+0000103A  4E73                      26      RTE
+0000103C                            27  
+0000103C  FFFF FFFF                 28      SIMHALT
+00001040                            29      
+00001040  =00E00010                 30  LED EQU $E00010
+00001040                            31  
+00002000                            32      ORG $2000
+00002000                            33  LED_STAT    DS.L  1
+00002004                            34  
+00000064                            35      ORG $64
+00000064= 00001020                  36  IVEC    DC.L    ISR
+00000068                            37  
+00000068                            38      END START
+
+No errors detected
+No warnings generated
+
+
+SYMBOL TABLE INFORMATION
+Symbol-name         Value
+-------------------------
+FG_LOOP             1012
+ISR                 1020
+IVEC                64
+LED                 E00010
+LED_STAT            2000
+START               1000
