@@ -1,0 +1,143 @@
+00001000 Starting Address
+Assembler used: EASy68K Editor/Assembler v5.16.01
+Created On: 26-11-2026 13:08:19
+
+00000000                             1  *-----------------------------------------------------------
+00000000                             2  * Written by : Vaishanth Bharadwaj
+00000000                             3  * Description: EEE8087
+00000000                             4  *-----------------------------------------------------------
+00000000                             5  
+00001000                             6  START   ORG $1000
+00001000                             7  
+00001000  007C 0700                  8      OR  #$0700,SR
+00001004                             9      
+00001004  307C 2000                 10      MOVE    #LIST,A0
+00001008  303C 000F                 11      MOVE    #15,D0
+0000100C  367C 2100                 12      MOVE #ARRAY,A3
+00001010                            13  GENERATE
+00001010  3153 0000                 14      MOVE    (A3),val(A0)
+00001014  3408                      15      MOVE    A0,D2
+00001016  0682 00000004             16      ADD.L #reclen,D2
+0000101C  3142 0002                 17      MOVE    D2,adr(A0)
+00001020  544B                      18      ADD #$2,A3
+00001022  D0FC 0004                 19      ADD #reclen,A0
+00001026  5340                      20      SUB #$1,D0
+00001028  66E6                      21      BNE GENERATE
+0000102A  3153 0000                 22      MOVE    (A3),val(A0)
+0000102E  317C 2000 0002            23      MOVE    #LIST,adr(A0)
+00001034                            24  
+00001034  207C 00002502             25      MOVE.L  #X,A0
+0000103A  227C 00002502             26      MOVE.L  #X,A1
+00001040  247C 00002000             27      MOVE.L  #LIST,A2
+00001046  223C 000025CA             28      MOVE.L  #SEG_DAT,D1
+0000104C                            29  
+0000104C  027C F8FF                 30      AND #$F8FF,SR
+00001050                            31      
+00001050                            32  SW_PRESSED
+00001050  1039 00E00014             33      MOVE.B  SW,D0
+00001056  C0BC 00000001             34      AND.L #$1,D0
+0000105C  66F2                      35      BNE SW_PRESSED
+0000105E                            36      
+0000105E                            37  WAIT
+0000105E  3039 00002500             38      MOVE  COUNT,D0
+00001064  67F8                      39      BEQ WAIT
+00001066                            40  
+00001066  3650                      41      MOVE  (A0),A3
+00001068  D6C1                      42      ADD   D1,A3
+0000106A  13D3 00E0000E             43      MOVE.B  (A3),SEG_LED
+00001070  5448                      44      ADD   #$2,A0
+00001072                            45      
+00001072  007C 0700                 46      OR  #$0700,SR
+00001076  3039 00002500             47      MOVE  COUNT,D0
+0000107C  5340                      48      SUB   #$1,D0
+0000107E  33C0 00002500             49      MOVE  D0,COUNT
+00001084  027C F8FF                 50      AND #$F8FF,SR
+00001088                            51      
+00001088                            52  SW_RELEASED
+00001088  1039 00E00014             53      MOVE.B  SW,D0
+0000108E  C0BC 00000001             54      AND.L #$1,D0
+00001094  67F2                      55      BEQ SW_RELEASED
+00001096                            56      
+00001096  60B8                      57      BRA SW_PRESSED
+00001098                            58      
+00001098                            59  ISR
+00001098  598F                      60      SUB.L   #$4,SP
+0000109A  2E80                      61      MOVE.L  D0,(SP)
+0000109C                            62      
+0000109C  302A 0000                 63      MOVE  val(A2),D0
+000010A0  346A 0002                 64      MOVE  adr(A2),A2
+000010A4  3280                      65      MOVE  D0,(A1)
+000010A6  5449                      66      ADD   #$2,A1
+000010A8  3039 00002500             67      MOVE  COUNT,D0
+000010AE  5240                      68      ADD   #$1,D0
+000010B0  33C0 00002500             69      MOVE  D0,COUNT
+000010B6                            70      
+000010B6  2017                      71      MOVE.L  (SP),D0
+000010B8  588F                      72      ADD.L   #$4,SP
+000010BA  4E73                      73      RTE
+000010BC                            74  
+000010BC  FFFF FFFF                 75      SIMHALT
+000010C0                            76  
+000010C0  =00E00014                 77  SW  EQU $E00014
+000010C0  =00E0000E                 78  SEG_LED EQU $E0000E
+000010C0                            79  
+00000064                            80      ORG $64
+00000064= 00001098                  81  IVEC    DC.L    ISR
+00000068                            82  
+00002000                            83      ORG $2000
+00002000                            84  LIST    DS    12
+00002018  =00000000                 85  val EQU 0
+00002018  =00000002                 86  adr EQU 2
+00002018  =00000004                 87  reclen  EQU 4
+00002018                            88  
+00002100                            89      ORG $2100
+00002100= 0000 0001 0002 0...       90  ARRAY   DC  $0,$1,$2,$3,$4,$5,$6,$7,$8,$9,$A,$B,$C,$D,$E,$F
+00002120                            91  
+00002500                            92      ORG $2500
+00002500= 0000                      93  COUNT   DC    0
+00002502                            94  X   DS    100
+000025CA                            95  
+000025CA= 3F                        96  SEG_DAT DC.B    $3F
+000025CB= 06                        97      DC.B    $06
+000025CC= 5B                        98      DC.B    $5B
+000025CD= 4F                        99      DC.B    $4F
+000025CE= 66                       100      DC.B    $66
+000025CF= 6D                       101      DC.B    $6D
+000025D0= 7D                       102      DC.B    $7D
+000025D1= 07                       103      DC.B    $07
+000025D2= 7F                       104      DC.B    $7F
+000025D3= 67                       105      DC.B    $67
+000025D4= 77                       106      DC.B    $77
+000025D5= 7C                       107      DC.B    $7C
+000025D6= 39                       108      DC.B    $39
+000025D7= 5E                       109      DC.B    $5E
+000025D8= 79                       110      DC.B    $79
+000025D9= 71                       111      DC.B    $71
+000025DA= 80                       112      DC.B    $80
+000025DB                           113      
+000025DB                           114      END START
+
+No errors detected
+No warnings generated
+
+
+SYMBOL TABLE INFORMATION
+Symbol-name         Value
+-------------------------
+ADR                 2
+ARRAY               2100
+COUNT               2500
+GENERATE            1010
+ISR                 1098
+IVEC                64
+LIST                2000
+RECLEN              4
+SEG_DAT             25CA
+SEG_LED             E0000E
+START               1000
+SW                  E00014
+SW_PRESSED          1050
+SW_RELEASED         1088
+VAL                 0
+WAIT                105E
+X                   2502

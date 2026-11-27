@@ -1,0 +1,102 @@
+00001000 Starting Address
+Assembler used: EASy68K Editor/Assembler v5.16.01
+Created On: 26-11-2026 11:10:32
+
+00000000                             1  *-----------------------------------------------------------
+00000000                             2  * Written by : Vaishanth Bharadwaj
+00000000                             3  * Description: EEE8087
+00000000                             4  *-----------------------------------------------------------
+00000000                             5  
+00001000                             6  START   ORG $1000
+00001000                             7  
+00001000                             8  INIT
+00001000  207C 00002004              9      MOVE.L    #SEG_DAT,A0
+00001006  1010                      10      MOVE.B  (A0),D0
+00001008  13C0 00E0000E             11      MOVE.B    D0,SEG_LED
+0000100E  227C 00002000             12      MOVE.L    #FLAG,A1
+00001014  22BC 00000000             13      MOVE.L  #$0000,(A1)
+0000101A                            14  
+0000101A  007C 0700                 15      OR  #$0700,SR
+0000101E                            16  
+0000101E                            17  SW_START
+0000101E  1039 00E00014             18      MOVE.B  SW,D0
+00001024  C0BC 00000001             19      AND.L #$1,D0
+0000102A  66F2                      20      BNE SW_START
+0000102C                            21  
+0000102C  027C F8FF                 22      AND #$F8FF,SR
+00001030                            23  
+00001030                            24  TIMER_RUN
+00001030  1039 00E00014             25      MOVE.B  SW,D0
+00001036  C0BC 00000002             26      AND.L #$2,D0
+0000103C  6700 0022                 27      BEQ STOP_TIMER
+00001040  2011                      28      MOVE.L    (A1),D0
+00001042  67EC                      29      BEQ TIMER_RUN
+00001044  1010                      30      MOVE.B  (A0),D0
+00001046  13C0 00E0000E             31      MOVE.B    D0,SEG_LED
+0000104C  5288                      32      ADD.L   #$1,A0
+0000104E  B0BC 00000067             33      CMP.L #$67,D0
+00001054  6700 000A                 34      BEQ STOP_TIMER
+00001058  22BC 00000000             35      MOVE.L    #$0000,(A1)
+0000105E  60D0                      36      BRA TIMER_RUN
+00001060                            37  
+00001060                            38  STOP_TIMER
+00001060  1039 00E00014             39      MOVE.B  SW,D0
+00001066  C0BC 00000004             40      AND.L #$4,D0
+0000106C  66F2                      41      BNE STOP_TIMER
+0000106E  6090                      42      BRA INIT
+00001070                            43  
+00001070                            44  ISR
+00001070  22BC 00000001             45      MOVE.L    #$1,(A1)
+00001076  4E73                      46      RTE
+00001078                            47  
+00001078  FFFF FFFF                 48      SIMHALT
+0000107C                            49      
+0000107C  =00E00014                 50  SW  EQU $E00014
+0000107C  =00E0000E                 51  SEG_LED EQU $E0000E
+0000107C                            52  
+00000064                            53      ORG $64
+00000064= 00001070                  54  IVEC    DC.L    ISR
+00000068                            55  
+00002000                            56      ORG $2000
+00002000                            57  FLAG    DS.L    $01
+00002004= 3F                        58  SEG_DAT DC.B    $3F
+00002005= 06                        59      DC.B    $06
+00002006= 5B                        60      DC.B    $5B
+00002007= 4F                        61      DC.B    $4F
+00002008= 66                        62      DC.B    $66
+00002009= 6D                        63      DC.B    $6D
+0000200A= 7D                        64      DC.B    $7D
+0000200B= 07                        65      DC.B    $07
+0000200C= 7F                        66      DC.B    $7F
+0000200D= 67                        67      DC.B    $67
+0000200E= 77                        68      DC.B    $77
+0000200F= 7C                        69      DC.B    $7C
+00002010= 39                        70      DC.B    $39
+00002011= 5E                        71      DC.B    $5E
+00002012= 79                        72      DC.B    $79
+00002013= 71                        73      DC.B    $71
+00002014= 80                        74      DC.B    $80
+00002015                            75  
+00000064                            76      ORG $64
+00000064= 00001070                  77  IVEC    DC.L    ISR
+00000068                            78  
+00000068                            79      END START
+
+No errors detected
+No warnings generated
+
+
+SYMBOL TABLE INFORMATION
+Symbol-name         Value
+-------------------------
+FLAG                2000
+INIT                1000
+ISR                 1070
+IVEC                64
+SEG_DAT             2004
+SEG_LED             E0000E
+START               1000
+STOP_TIMER          1060
+SW                  E00014
+SW_START            101E
+TIMER_RUN           1030

@@ -8,7 +8,6 @@ START   ORG $1000
     MOVE.L    #$0000,D0
     MOVE.L    D0,LED_STAT
     MOVE.B    D0,LED
-    MOVE    #$2000,SR
 
 FG_LOOP
     MOVE.L  LED_STAT,D0
@@ -36,6 +35,8 @@ LED_STAT    DS.L  1
 IVEC    DC.L    ISR
 
 	END	START
+
+
 
 
 *~Font name~Courier New~
